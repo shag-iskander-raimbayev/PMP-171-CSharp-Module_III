@@ -14,6 +14,7 @@ namespace ConsoleApplication1
          *  2. unchecked / checked
          *  
          *  3. Массивы
+         *  3.1 Random
          *  4. String
          */
         static void Main(string[] args)
@@ -51,16 +52,157 @@ namespace ConsoleApplication1
             }
             */
             #endregion
-            checked
+
+            #region Checked Unchecked
+            //checked
+            //{
+            //    int a = 100;
+            //    sbyte b = 100;
+            //    b = (sbyte)a;
+
+            //    Console.WriteLine(b);
+
+            //}
+            #endregion
+
+            #region Arrays
+            //int [] array = new int[10];
+
+            //int [] secondArray = new int[5] { 1, 2, 3, 4, 5};
+
+            //int[] thirdArray = new int[] { 2, 3, 4, 5 };
+
+            // Some int in range [A, B]
+            Random random = new Random();
+            // R => [5; 10);
+
+            //double sum = 0;
+            //for(int i = 0; i < array.Length; i++)
+            //{
+            //    array[i] = random.Next(1, 10);
+            //    sum += array[i];
+            //    Console.Write(array[i] + " ");
+            //}
+            //Console.WriteLine();
+            //Console.WriteLine(sum);
+            //Console.WriteLine((sum / array.Length));
+
+            // Jugged Array - Зубчатый массив
+            //int[][] juggDimArray = new int[10][];
+
+            //int[,] twoDimArray = new int[4,7];
+
+            //int counter = 0;
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    for (int j = 0; j < 7; j++)
+            //    {
+            //        counter++;
+            //        twoDimArray[i, j] = counter;
+            //        Console.Write(twoDimArray[i, j] + " ");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //for(int i = 0; i < juggDimArray.Length; i++)
+            //{
+            //    int length = random.Next(5, 10);
+            //    juggDimArray[i] = new int[length];
+            //    for(int j = 0; j < juggDimArray[i].Length; j++)
+            //    {
+            //        Console.Write(juggDimArray[i][j] + " ");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //for(int i = 0; i<juggDimArray.Length / 2; i++)
+            //{
+            //    juggDimArray[i] = new char[i + 1];
+            //    for(int j = 0; j < juggDimArray[i].Length; j++)
+            //    {
+            //        juggDimArray[i][j] = '#';
+            //        Console.Write(juggDimArray[i][j]);
+            //    }
+            //    Console.WriteLine();
+            //}
+            //for (int i = juggDimArray.Length/2 - 1; i >= 0; i--)
+            //{
+            //    juggDimArray[i] = new char[i + 1];
+            //    for (int j = 0; j < juggDimArray[i].Length; j++)
+            //    {
+            //        juggDimArray[i][j] = '#';
+            //        Console.Write(juggDimArray[i][j]);
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //int[][] juggArray = new int[random.Next(5, 10)][];
+            //int maxLength = 0, maxLengthIndex = 0;
+            //int maxSubsum = 0, maxSubsumIndex = 0;
+            //for (int i = 0; i < juggArray.Length; i++)
+            //{
+            //    juggArray[i] = new int[random.Next(3, 7)];
+
+            //    if(juggArray[i].Length > maxLength)
+            //    {
+            //        maxLength = juggArray[i].Length;
+            //        maxLengthIndex = i;
+            //    }
+
+            //    int subSum = 0;
+            //    for(int j = 0; j<juggArray[i].Length; j++)
+            //    {
+            //        juggArray[i][j] = random.Next(0,10);
+            //        subSum += juggArray[i][j];
+            //        Console.Write(juggArray[i][j] + " ");
+            //    }
+            //    if(subSum > maxSubsum)
+            //    {
+            //        maxSubsum = subSum;
+            //        maxSubsumIndex = i;
+            //    }
+            //    Console.WriteLine();
+            //}
+
+
+            //Console.WriteLine("MAX LENGTH " + maxLength + " INDEX " + maxLengthIndex);
+            //Console.WriteLine("MAX SUM " + maxSubsum + " INDEX " + maxSubsumIndex);
+
+            string initialWord = "mama";
+            string encodedWord = "";
+            int rotateValue = 3;
+
+            foreach (var item in initialWord)
             {
-                int a = 100;
-                sbyte b = 100;
-                b = (sbyte)a;
-
-                Console.WriteLine(b);
-
+                int ascii = (int)item;
+                ascii += rotateValue;
+                encodedWord += (char)(ascii);
             }
+            Console.WriteLine(encodedWord);
 
+            //string decodedWord = "";
+            //foreach (var item in encodedWord)
+            //{
+            //    int ascii = (int)item;
+            //    ascii -= rotateValue;
+            //    decodedWord += (char)(ascii);
+            //}
+            //Console.WriteLine(decodedWord);
+
+
+            for (int i = -25; i <= 26; i++)
+            {
+                string decodedValue = "";
+                foreach (var item in encodedWord)
+                {
+                    int intValue = (int)item;
+                    intValue += i;
+                    decodedValue += (char)intValue;
+                    Console.WriteLine( i +  " " + decodedValue);
+                }
+            }
+                
+            #endregion
             Console.ReadLine();
         }
     }
