@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConsoleApplication1
@@ -73,7 +75,7 @@ namespace ConsoleApplication1
             //int[] thirdArray = new int[] { 2, 3, 4, 5 };
 
             // Some int in range [A, B]
-            Random random = new Random();
+            //Random random = new Random();
             // R => [5; 10);
 
             //double sum = 0;
@@ -168,17 +170,17 @@ namespace ConsoleApplication1
             //Console.WriteLine("MAX LENGTH " + maxLength + " INDEX " + maxLengthIndex);
             //Console.WriteLine("MAX SUM " + maxSubsum + " INDEX " + maxSubsumIndex);
 
-            string initialWord = "mama";
-            string encodedWord = "";
-            int rotateValue = 3;
+            //string initialWord = "mama";
+            //string encodedWord = "";
+            //int rotateValue = 3;
 
-            foreach (var item in initialWord)
-            {
-                int ascii = (int)item;
-                ascii += rotateValue;
-                encodedWord += (char)(ascii);
-            }
-            Console.WriteLine(encodedWord);
+            //foreach (var item in initialWord)
+            //{
+            //    int ascii = (int)item;
+            //    ascii += rotateValue;
+            //    encodedWord += (char)(ascii);
+            //}
+            //Console.WriteLine(encodedWord);
 
             //string decodedWord = "";
             //foreach (var item in encodedWord)
@@ -190,18 +192,82 @@ namespace ConsoleApplication1
             //Console.WriteLine(decodedWord);
 
 
-            for (int i = -25; i <= 26; i++)
-            {
-                string decodedValue = "";
-                foreach (var item in encodedWord)
-                {
-                    int intValue = (int)item;
-                    intValue += i;
-                    decodedValue += (char)intValue;
-                    Console.WriteLine( i +  " " + decodedValue);
-                }
-            }
-                
+            //for (int i = -25; i <= 26; i++)
+            //{
+            //    string decodedValue = "";
+            //    foreach (var item in encodedWord)
+            //    {
+            //        int intValue = (int)item;
+            //        intValue += i;
+            //        decodedValue += (char)intValue;
+            //        Console.WriteLine( i +  " " + decodedValue);
+            //    }
+            //}
+
+
+            //string firstString = "Almaty";
+            //string secondString = new string(new char[] { 'A', 's', 't', 'a', 'n', 'a' });
+            //string thirdString = firstString + " " + secondString; // Concatenation
+
+            //Console.WriteLine(thirdString.ToUpper());
+            //Console.WriteLine(thirdString.ToLower());
+
+            //string longString = "HELLO_MY_WORLD*I_AM_HAPPY";
+
+            //var splittedString = longString.Split('*');
+
+            //foreach (var item in splittedString)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //firstString.ToUpper();
+            //Console.WriteLine(firstString);
+
+            //string intialString = "MyNewString";
+            //intialString += "AddedSmthNew";
+
+            //StringBuilder smth = new StringBuilder();
+            //string someString = "";
+
+            //for(int i = 0; i < 1000000; i++)
+            //{
+            //    smth.Append("a");
+            //}
+            //Console.WriteLine(smth.ToString().Length);
+
+            string code = "loldaaawwwffg";
+
+            //Console.WriteLine(code.Contains("wffgg"));
+
+            string newString = code.Replace("wwff", "y");
+
+            char [] reversed = code.Reverse().ToArray();
+
+            string reversedString = new string(reversed);
+
+            // Console.WriteLine(reversedString);
+
+            string newStringWithCopies = "aaaabbbcccddde";
+            char[] districtValues = newStringWithCopies.Distinct().ToArray();
+
+            string updatedValue = new string(districtValues);
+            //Console.WriteLine(updatedValue);
+
+
+            Console.WriteLine(updatedValue + " " + newString);
+
+
+            Console.WriteLine("{1} {1} {1}", updatedValue, newString, newStringWithCopies); // String Formatting
+            string secret = "***";
+            Console.WriteLine($"Hello it is my string { DateTime.Now } lol lol lol lol"); // String Interpolation
+
+            Console.OutputEncoding = UTF8Encoding.UTF8;
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("us");
+
+            int salary = 100000;
+            string value = string.Format(new CultureInfo("kz-KZ"), "{0:C}", salary);
+            Console.WriteLine(value);
             #endregion
             Console.ReadLine();
         }
